@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: delhi-forecasting
+    env: python
+    rootDir: delhi_forecasting_dashboard
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run main.py --server.port=$PORT --server.address=0.0.0.0
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: USE_REAL_WEATHER_API
+        value: "false"
+      - key: DELHI_LAT
+        value: "28.6139"
+      - key: DELHI_LON
+        value: "77.2090"
+      - key: WEATHER_UPDATE_FREQUENCY
+        value: "1"
+      - key: HISTORICAL_WEATHER_DAYS
+        value: "365"
+      - key: ENABLE_AQI_CORRELATION
+        value: "true"
+      - key: ENABLE_DUST_STORM_SIMULATION
+        value: "true"
+      - key: ENABLE_FOG_SIMULATION
+        value: "true"
