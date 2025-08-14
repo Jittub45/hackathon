@@ -3,8 +3,8 @@ services:
     name: delhi-forecasting
     env: python
     rootDir: delhi_forecasting_dashboard
-    buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run main.py --server.port=$PORT --server.address=0.0.0.0
+  buildCommand: pip install -r streamlit_requirements.txt
+  startCommand: python -m streamlit run main.py --server.port=$PORT --server.address=0.0.0.0
     plan: free
     autoDeploy: true
     envVars:
